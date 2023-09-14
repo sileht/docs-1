@@ -1,5 +1,5 @@
 import {
-  Table, Thead, Tr, Th, Tbody, Td,
+  Table, Thead, Tr, Th, Tbody, Td, Badge,
 } from '@chakra-ui/react';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -20,6 +20,10 @@ export default function OptionsTable({ name }: Props) {
   const options = configSchema.definitions[name]
     .properties as { [optionKey: string]: OptionDefinition };
 
+  return OptionsTableBase(options);
+}
+
+export function OptionsTableBase(options: OptionDefinition) {
   const hasDefaultValue = (definition: OptionDefinition) => (
     definition.default !== undefined && String(definition.default).length > 0
   );
@@ -31,15 +35,17 @@ export default function OptionsTable({ name }: Props) {
           <Th>Key name</Th>
           <Th>Value type</Th>
           <Th>Default</Th>
+          <Th />
         </Tr>
       </Thead>
       <Tbody>
         {Object.entries(options).map(([optionKey, definition]) => {
           const valueType = getValueType(definition);
+          const { deprecated } = definition;
 
           return (
             <>
-              <Tr>
+              <Tr position="relative">
                 <Td>
                   <InlineCode>{optionKey}</InlineCode>
                 </Td>
@@ -53,10 +59,13 @@ export default function OptionsTable({ name }: Props) {
                   </InlineCode>
                   )}
                 </Td>
+                <Td>
+                  {deprecated && <Badge colorScheme="orange" top={0} left={0}>deprecated</Badge>}
+                </Td>
               </Tr>
               <Tr>
                 {/* FIXME: don't hardcode the border color like that */}
-                <Td lineHeight="7" colSpan="3" style={{ borderBottom: '2px solid #eee' }}>
+                <Td lineHeight="7" colSpan="4" style={{ borderBottom: '2px solid #eee' }}>
                   <ReactMarkdown components={mdxComponents as any}>
                     {definition.description}
                   </ReactMarkdown>
