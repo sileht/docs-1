@@ -66,9 +66,6 @@ const plugins = [
       plugins: gatsbyRemarkPlugins
     }
   },
-];
-
-plugins.push(
   'gatsby-plugin-local-docs', // local plugin
   {
     resolve: 'gatsby-source-filesystem',
@@ -76,10 +73,30 @@ plugins.push(
       name: '/',
       path: 'src/content'
     }
+  },
+  {
+    resolve: `gatsby-plugin-netlify`,
+    options: {
+      headers: {
+        "/*": [
+          "Cache-control: public, max-age=600, no-transform",
+          "Content-Security-Policy: default-src 'self' https:; " +
+            "frame-ancestors 'none'; " +
+            "script-src 'self' https: 'unsafe-inline'; " +
+            "style-src 'self' 'unsafe-inline' https:; " +
+            "img-src 'self' data: https:; " +
+            "manifest-src 'self' data:",
+        ]
+      },
+      allPageHeaders: [],
+      mergeSecurityHeaders: true,
+      mergeCachingHeaders: true,
+      transformHeaders: (headers, path) => headers,
+      generateMatchPathRewrites: true,
+    },
   }
-);
+];
 
-plugins.push('gatsby-plugin-client-side-redirect')
 
 const config = {
   pathPrefix: '/' + process.env.PR_NUMBER + '/docs',
