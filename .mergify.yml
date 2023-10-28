@@ -62,6 +62,10 @@ queue_rules:
       - or:
           - and:
               - author=mergify-ci-bot
+              - head~=^openapi-docs-sync$
+              - "title~=^chore: sync"
+          - and:
+              - author=mergify-ci-bot
               - head~=^clifus/
               - "title~=^chore: bump"
           - author=dependabot[bot]
