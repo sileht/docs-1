@@ -105,11 +105,13 @@ const plugins = [
           "Cache-control: public, max-age=600, no-transform",
           "Content-Security-Policy: " +
             "default-src 'self'; " +
-            "connect-src 'self' https://*.algolia.net https://*.algolianet.com https://*.algolia.io; " +
+            "connect-src 'self' https://*.algolia.net https://*.algolianet.com https://*.algolia.io https://plausible.io; " +
             "frame-ancestors 'none'; " +
             "script-src 'self' 'unsafe-inline' https://plausible.io; " +
             "style-src 'self' 'unsafe-inline'; " +
+            "frame-src 'self' https://www.youtube.com/; " +
             "img-src 'self' data:; " +
+            "font-src 'self' data:; " +
             "manifest-src 'self' data:",
         ]
       },
