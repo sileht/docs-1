@@ -110,7 +110,7 @@ const plugins = [
             "script-src 'self' 'unsafe-inline' https://plausible.io; " +
             "style-src 'self' 'unsafe-inline'; " +
             "frame-src 'self' https://www.youtube.com/; " +
-            "img-src 'self' data:; " +
+            "img-src 'self' data: https://img.shields.io; " +
             "font-src 'self' data:; " +
             "manifest-src 'self' data:",
         ]
