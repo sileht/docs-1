@@ -57,7 +57,7 @@
     "canvas": "^2.11.2",
     "fenceparser": "^2.2.0",
     "fuse.js": "^7.0.0",
-    "gatsby": "^5.12.12",
+    "gatsby": "^5.13.0",
     "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-manifest": "^5.13.0",
     "gatsby-plugin-mdx": "^5.12.3",
