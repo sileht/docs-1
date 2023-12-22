@@ -33,8 +33,8 @@ dotenv.populate(
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://docs.mergify.com/',
-	base: process.env.PR_NUMBER ? '/' + process.env.PR_NUMBER + '/docs/' : '',
+	site: process.env.SITE_URL ? process.env.SITE_URL : 'https://docs.mergify.com',
+	base: process.env.BASE_URL ? process.env.BASE_URL : '',
 	integrations: [
 		AutoImport({
 			imports: [asideAutoImport, youtubeAutoImport],
