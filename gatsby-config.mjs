@@ -128,12 +128,12 @@ const plugins = [
 Boolean(process.env.ALGOLIA_WRITE_KEY) && plugins.push('algolia-plugin')
 
 const config = {
-  pathPrefix: '/' + process.env.PR_NUMBER + '/docs',
+  pathPrefix: process.env.BASE_URL || '',
   trailingSlash: 'always',
   siteMetadata: {
     title: 'Mergify Documentation',
     description: 'Learn how to use Mergify, the powerful pull request automation tool that helps teams merge code faster and more safely. Automate your entire pull request workflow, from code review to deployment, and save time and frustration.',
-    siteUrl: 'https://docs.mergify.com',
+    siteUrl: process.env.SITE_URL || 'https://docs.mergify.com',
     image: '/favicon.svg'
   },
   plugins

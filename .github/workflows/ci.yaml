@@ -57,7 +57,8 @@ jobs:
 
       - name: Build 🔧
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          SITE_URL: https://docs-preview.mergify.com
+          BASE_URL: ${{ github.event.pull_request.number }}/docs
         run: |
           npm ci
           npm run build -- --prefix-paths
