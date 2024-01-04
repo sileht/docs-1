@@ -1,5 +1,6 @@
 name: Documentation Preview
-permissions: read-all
+permissions:
+  contents: write
 
 on:
   # NOTE(sileht): safe as long as we don't run/build anything from the pull request
