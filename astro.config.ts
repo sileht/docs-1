@@ -7,6 +7,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkSmartypants from 'remark-smartypants';
 import { asideAutoImport, astroAsides } from './integrations/astro-asides';
 import { youtubeAutoImport, astroYoutubeEmbeds } from './integrations/astro-youtube-embed';
+import { ScalarApiReference } from './integrations/scalar-api-reference';
 import { astroDocsExpressiveCode } from './integrations/expressive-code';
 import { autolinkConfig } from './plugins/rehype-autolink-config';
 import { rehypeOptimizeStatic } from './plugins/rehype-optimize-static';
@@ -50,6 +51,7 @@ export default defineConfig({
 			changefreq: 'daily',
 			priority: 0.7,
 		}),
+        ScalarApiReference(),
 	],
 	scopedStyleStrategy: 'where',
 	compressHTML: false,

@@ -1,7 +1,8 @@
 ---
-import { ApiReference } from '@scalar/api-reference';
-import apiSchema from '../api-schemas.json';
 import '../styles/api.css';
 ---
 
-<ApiReference client:only="vue" {...{ configuration: { spec: { content: apiSchema } } }} />
+<body>
+	<script is:inline id="api-reference" data-url="/api-schemas.json"></script>
+	<script is:inline src="/scalar-api-reference.js" charset="utf-8"></script>
+</body>

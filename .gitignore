@@ -8,3 +8,4 @@ dist
 
 # Statically generated images at build time, don't push them
 /static/og-images
+public/scalar-api-reference.js
